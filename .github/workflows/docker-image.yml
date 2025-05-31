@@ -29,8 +29,8 @@ jobs:
           context: .
           push: true
           tags: |
-            docker.io/${{ secrets.DOCKERHUB_USERNAME }}/hello-world-go:latest
-            docker.io/${{ secrets.DOCKERHUB_USERNAME }}/hello-world-go:${{ github.sha }}
+            docker.io/${{ secrets.DOCKERHUB_USERNAME }}/hello-go:latest
+            docker.io/${{ secrets.DOCKERHUB_USERNAME }}/hello-go:${{ github.sha }}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
