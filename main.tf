@@ -13,6 +13,7 @@ resource "kubernetes_manifest" "deployment_hello_deployment" {
         "app" = "hello"
       }
       "name" = "hello-deployment"
+      "namespace" = kubernetes_namespace.hello.metadata[0].name
     }
     "spec" = {
       "replicas" = 1
@@ -51,6 +52,7 @@ resource "kubernetes_manifest" "service_hello_service" {
     "kind" = "Service"
     "metadata" = {
       "name" = "hello-service"
+      "namespace" = kubernetes_namespace.hello.metadata[0].name
     }
     "spec" = {
       "ports" = [
